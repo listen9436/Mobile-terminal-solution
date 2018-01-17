@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <title>Title</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            -webkit-box-sizing: border-box;
+            -webkit-tap-highlight-color: transparent;
+            tap-highlight-color: transparent;
+        }
+        html,body{
+            min-width: 320px;
+            max-width: 640px;
+            max-height: 100%;
+            height: 100%;
+            overflow: hidden;
+            margin: 0 auto;
+        }
+        .box{
+            width: 100%;
+            height: 100%;
+        }
+        .box ul{
+            height: 500%;
+            width: 100%;
+            transform: translateY(-20%);
+        }
+        .box ul li{
+            list-style: none;
+            height: 20%;
+        }
+    </style>
+    <script>
+        function font() {
+            var w = document.documentElement.clientWidth;
+            if (w>640){
+                document.documentElement.style.fontSize = 640/10+"px";
+            }else {
+                document.documentElement.style.fontSize = w/10+"px";
+            }
+        }
+        font();
+        window.onresize = function () {
+            font();
+        };
+        window.onload = function () {
+            var box = document.getElementsByClassName("box")[0];
+            var oUl = document.getElementsByTagName("ul")[0];
+            var arrLi = oUl.children;
+            var len = arrLi.length;
+            var index = 1;
+            var ks = 0;
+            var js = 0;
+            var cha = 0;
+            var open = false;
+            var timer = null;
+
+            timer = setInterval(prev,2000);
+            function prev() {
+                index++;
+                open = true;
+                oUl.style.transition = .5+"e ease";
+                oUl.style.webkitTransition = .5+"s ease";
+                oUl.style.transform = "translateY("+(-index*20)+"%)";
+                oUl.style.webkittransform = "translateY("+(-index*20)+"%)";
+            }
+            function next() {
+                index--;
+                open = true;
+                oUl.style.transition = .5+"e ease";
+                oUl.style.webkitTransition = .5+"s ease";
+                oUl.style.transform = "translateY("+(-index*20)+"%)";
+                oUl.style.webkittransform = "translateY("+(-index*20)+"%)";
+            }
+            //事件监听
+            oUl.addEventListener("TransitionEnd",function () {
+                if (index>len-2){
+                    index = 1;
+                }else if(index<1){
+                    index = len-2;
+                }
+                oUl.style.transition = "none";
+                oUl.style.webkittransition = "none";
+                oUl.style.transform = "translateY("+(-index*20)+"%)";
+                oUl.style.webkittransform = "translateY("+(-index*20)+"%)";
+                open = false;
+            });
+            //兼容谷歌
+            oUl.addEventListener("webkitTransitionEnd",function () {
+                if (index>len-2){
+                    index = 1;
+                }else if(index<1){
+                    index = len-2;
+                }
+                oUl.style.transition = "none";
+                oUl.style.webkittransition = "none";
+                oUl.style.transform = "translateY("+(-index*20)+"%)";
+                oUl.style.webkittransform = "translateY("+(-index*20)+"%)";
+                open = false;
+            });
+
+            box.addEventListener("touchstart",function (e) {
+                ks = e.touches[0].pageY;
+//                console.log(ks);
+            });
+            box.addEventListener("touchmove",function (e) {
+                js = e.touches[0].pageY;
+//                console.log(js);
+                clearInterval(timer); //在里面点时清除定时器
+            });
+            box.addEventListener("touchend",function () {
+                cha = js-ks;
+//                console.log(cha);
+                if (js!=0){
+                    if (cha>100 && open == false){
+                        next();
+                    }
+                    else if(cha<-100 && open == false){
+                        prev();
+                    }
+                    js=0;
+                    timer = setInterval(prev,2000);
+                }
+            });
+        }
+    </script>
+</head>
+<body>
+<div class="box">
+    <ul>
+        <li style="background: #afd9ee">3</li>
+        <li style="background: #3bda5c">1</li>
+        <li style="background: #e4b9c0">2</li>
+        <li style="background: #afd9ee">3</li>
+        <li style="background: #3bda5c">1</li>
+    </ul>
+</div>
+</body>
+</html>

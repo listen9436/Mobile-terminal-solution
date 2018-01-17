@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .box{
+            width: 200px;
+            height: 300px;
+            background: #000;
+        }
+    </style>
+    <script>
+        window.onload = function () {
+            var oDiv = document.getElementsByClassName("box")[0];
+            var k = 0;
+            var j = 0;
+            oDiv.addEventListener("touchstart",function (e) {
+                k = e.touches[0].clientX;
+            });
+            oDiv.addEventListener("touchmove",function (e) {
+                j = e.touches[0].clientX;
+            });
+            oDiv.addEventListener("touchend",function () {
+                var a = j-k;
+                if (a>30){
+                    alert("右滑")
+                }if(a<-30) {
+                    alert("左滑")
+                }
+            });
+            }
+    </script>
+</head>
+<body>
+<div class="box"></div>
+</body>
+</html>

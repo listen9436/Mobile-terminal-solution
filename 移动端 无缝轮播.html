@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        .box{
+            width: 500px;
+            height: 200px;
+            overflow: hidden;
+            margin: 50px auto;
+            border: 2px solid #000;
+        }
+        ul{
+            width: 500%;
+            height: 100%;
+            transform: translateX(-20%);
+        }
+        li{
+            list-style: none;
+            float: left;
+            width: 20%;
+            height: 100%;
+            font-size: 30px;
+            text-align: center;
+            line-height: 200px;
+        }
+    </style>
+    <script>
+        window.onload = function () {
+            var oBox = document.getElementsByClassName("box")[0];
+            var oUl = document.getElementsByTagName("ul")[0];
+            var arrLi = oUl.children;
+            var len = arrLi.length;
+            var oLi = oUl.children[0];
+            var w = oLi.offsetWidth;
+            var i=1;
+            var ks = 0;
+            var js = 0;
+            var cha = 0;
+            var open = false;
+            var timer = null;
+
+            timer = setInterval(next,2000);
+
+            function next() {
+                i++;
+                open = true;
+                oUl.style.transition = 0.5+"s ease";
+                oUl.style.webkitTransition = 0.5+"s ease";
+                oUl.style.transform = "translateX("+(-i*w)+"px)";
+                oUl.style.webkitTransform = "translateX("+(-i*w)+"px)";
+            }
+            function prev() {
+                i--;
+                open = true;
+                oUl.style.transition = 0.5+"s ease";
+                oUl.style.webkitTransition = 0.5+"s ease";
+                oUl.style.transform = "translateX("+(-i*w)+"px)";
+                oUl.style.webkitTransform = "translateX("+(-i*w)+"px)";
+            }
+            //事件监听
+            oUl.addEventListener("transitionEnd",function () {
+                if (i>len-2){
+                    i = 1;
+                }else if (i<1){
+                    i = len-2;
+                }
+                oUl.style.transition = "none";
+                oUl.style.webkitTransition = "none";
+                oUl.style.transform = "translateX("+(-i*w)+"px)";
+                oUl.style.webkitTransform = "translateX("+(-i*w)+"px)";
+                open = false;
+            });
+            //兼容谷歌
+            oUl.addEventListener("webkitTransitionEnd",function () {
+                if (i>len-2){
+                    i=1;
+                }else if (i<1){
+                    i = len-2;
+                }
+                oUl.style.transition = "none";
+                oUl.style.webkitTransition = "none";
+                oUl.style.transform = "translateX("+(-i*w)+"px)";
+                oUl.style.webkitTransform = "translateX("+(-i*w)+"px)";
+                open = false;
+            });
+
+            //滑动事件
+                /*
+                *  touch事件的话，如果说我们多次来回滑动当前元素可能会检测不到
+                *  touchEnd事件，但它会冒泡到window上去；
+                *  所以最后应该给window监听结束事件
+                * */
+
+            oBox.addEventListener("touchstart",function (e) {
+                ks = e.touches[0].clientX;
+                clearInterval(timer); //在里面点击时
+            });
+            oBox.addEventListener("touchmove",function (e) {
+                js = e.touches[0].clientX;
+            });
+            window.addEventListener("touchend",function () {
+                cha = js-ks;
+                if (cha > 50 && open == false){
+                    prev();
+                }else if(cha < -50 && open == false){
+                    next();
+                }
+                timer = setInterval(next,2000);
+            })
+        }
+    </script>
+</head>
+<body>
+<div class="box">
+    <ul>
+        <li style="background: #afd9ee">3</li>
+        <li style="background: #c7254e">1</li>
+        <li style="background: #e4b9c0">2</li>
+        <li style="background: #afd9ee">3</li>
+        <li style="background: #c7254e">1</li>
+    </ul>
+</div>
+</body>
+</html>

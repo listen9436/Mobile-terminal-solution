@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            -webkit-box-sizing: border-box;
+            tap-highlight-color: transparent;     /*  去掉手机点击时的高亮效果 */
+            -webkit-tap-highlight-color: transparent;
+        }
+        html{
+            font-size: 30px;
+        }
+        body{
+            overflow: hidden;
+            margin: 0 auto;
+            max-width: 640px;
+            min-width: 320px;
+        }
+        .box{
+            max-width: 640px;
+            min-width: 320px;
+            margin: 0 auto;
+            height: 100px;
+            background: red;
+        }
+        .box1{
+            width: 25%;
+            height: 60px;
+            border: 4px solid #00B0E7;
+            float: left;
+        }
+        a{
+            display: block;
+            width: 200px;
+            height: 200px;
+            background: pink;
+        }
+        /* 通过媒体查询我去改变 html 的字体大小，
+            改变他之后 rem的比值就跟着改变了;
+        */
+        @media only screen and (min-width: 320px) and (max-width: 470px) {
+            html{
+                font-size: 15px;
+            }
+        }
+        @media only screen and (min-width: 470px) and (max-width: 640px) {
+            html{
+                font-size: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+<!--pc端  www.
+    移动端  m.  （m.jd.com）
+    移动端没有浏览器兼容性问题。
+    1，但为兼容不同分辨率的手机，需用百分比布局（box-sizing:border-box;）。
+    2，字体大小，通过媒体查询来改变html的字体大小，从而改变rem的比值（页面文字使用rem单位）,来改变字体大小
+
+    -->
+<div class="box">
+    <div class="box1"></div>
+    <div class="box1"></div>
+    <div class="box1"></div>
+    <div class="box1"></div>
+</div>
+<a href="javascript:">哈哈哈</a>
+</body>
+</html>
