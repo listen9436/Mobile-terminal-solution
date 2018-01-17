@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"/>
+    <title>Title</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            -webkit-box-sizing: border-box;
+            -webkit-tap-highlight-color: transparent;
+            tap-highlight-color: transparent;/*去点击高亮*/
+        }
+
+        /*单页面为了避免内容太少没法充满高，这个时候应该设置html的最小高度为100%  */
+        html {
+            min-height: 100%;
+        }
+        body {
+            max-width: 640px;
+            min-width: 320px;
+            margin: 0 auto;
+            position: relative;
+            background-image: -webkit-linear-gradient(#ad4d8d, #566293);
+            background-image: linear-gradient(#ad4d8d, #566293);
+            /*body的背景色不会根据设置的宽高改变，，永远是充满全屏的*/
+        }
+        .box{
+            height: 0.3125rem;
+        }
+        .box_top{
+            height: 1.465rem;
+            background: url("images/line_top.png") repeat-y 1.6rem top;
+            background-size: 0.032rem 1.8rem;
+            -webkit-background-size: 0.032rem 1.8rem;
+        }
+        .content{
+            height: 31.395rem;
+            background: url("images/line_middle.png") repeat-y 1.6rem 0;
+            background-size: 0.032rem 0.224rem;
+            -webkit-background-size: 0.032rem 0.224rem;
+            position: relative;
+            font-size: 0.42rem;
+            color:#fff;
+            font-weight: 900;
+            padding-top: 5.975rem;
+        }
+        .content_text{
+            height: 1.875rem;
+        }
+        .date{
+            width: 1rem;
+            height: 1.265rem;
+            padding-left: 0.25rem;
+            text-align: center;
+            line-height: 1.265rem;
+            float: left;
+        }
+        .content_zj{
+            width: 1.275rem;
+            height: 1.44rem;
+            padding:0.24rem 0;
+            float: left;
+        }
+        .content_zj>div{
+            width: 0.7185rem;
+            height: 0.7185rem;
+            background:rgba(255,255,255,0.4);
+            margin: 0 auto;
+            border-radius: 100%;
+            padding:0.1796rem 0;
+        }
+        .content_zj>div>span{
+            width: 0.3592rem;
+            height: 0.3592rem;
+            background:rgba(255,255,255,0.8);
+            margin: 0 auto;
+            border-radius: 100%;
+            display: block;
+        }
+        .box_bottom{
+            height: 1.465rem;
+            background: url("images/line_bottom.png") repeat-y 1.6rem top;
+            background-size: 0.032rem 1.8rem;
+            -webkit-background-size: 0.032rem 1.8rem;
+        }
+        .right_box{
+            width: 6.875rem;
+            height: 12.7825rem;
+            position: fixed;
+            top: 1.825rem;
+            right: 0.3125rem;
+            padding: 0.3925rem 0;
+            background: rgba(255,255,255,0.3);
+            border-radius: 0.3125rem;
+            -webkit-border-radius: 0.3125rem;
+            /*overflow: hidden;*/
+        }
+        .right_box p{
+            color: #fff;
+            font-size: 0.42rem;
+            font-weight: 900;
+            text-align: left;
+            padding: 0.3125rem;
+        }
+        .right_box img{
+            width: 1.406rem;
+            position: absolute;
+            right: 0;
+            bottom: 0;
+            border-bottom-right-radius: 0.3125rem;
+        }
+        .right_box span{
+            display: block;
+            position: absolute;
+            right: 0.08625rem;
+            bottom: 0.15625rem;
+            color: #fff;
+            font-size: 0.38rem;
+            font-weight: 900;
+        }
+        .sanjiao{
+            width: 0;
+            height: 0;
+            border-top: 0.25rem solid transparent;
+            border-bottom: 0.25rem solid transparent;
+            border-right: 0.25rem solid rgba(255,255,255,0.3);
+            position: absolute;
+            top: 50%;
+            margin-top: -0.125rem;
+            left: -0.25rem;
+        }
+    </style>
+    <script>
+        function font() {
+            var w = document.documentElement.clientWidth;
+            if (w > 640) {
+                document.documentElement.style.fontSize = 640 / 10 + "px";
+            } else {
+                document.documentElement.style.fontSize = w / 10 + "px";
+            }
+        }
+        font();
+        window.onresize = function () {
+            font();
+        }
+    </script>
+</head>
+<body>
+<div class="box"></div>
+<div class="box_top"></div>
+<div class="content">
+    <div class="content_text">
+        <div class="date">12.8</div>
+        <div class="content_zj">
+            <div class="jz_big">
+                <span></span>
+            </div>
+        </div>
+    </div>
+    <div class="content_text">
+        <div class="date">12.8</div>
+        <div class="content_zj">
+            <div class="jz_big">
+                <span></span>
+            </div>
+        </div>
+    </div>
+    <div class="content_text">
+        <div class="date">12.8</div>
+        <div class="content_zj">
+            <div class="jz_big">
+                <span></span>
+            </div>
+        </div>
+    </div>
+    <div class="content_text">
+        <div class="date">12.8</div>
+        <div class="content_zj">
+            <div class="jz_big">
+                <span></span>
+            </div>
+        </div>
+    </div>
+    <div class="content_text">
+        <div class="date">12.8</div>
+        <div class="content_zj">
+            <div class="jz_big">
+                <span></span>
+            </div>
+        </div>
+    </div>
+    <div class="content_text">
+        <div class="date">12.8</div>
+        <div class="content_zj">
+            <div class="jz_big">
+                <span></span>
+            </div>
+        </div>
+    </div>
+    <div class="content_text">
+        <div class="date">12.8</div>
+        <div class="content_zj">
+            <div class="jz_big">
+                <span></span>
+            </div>
+        </div>
+    </div>
+    <div class="content_text">
+        <div class="date">12.8</div>
+        <div class="content_zj">
+            <div class="jz_big">
+                <span></span>
+            </div>
+        </div>
+    </div>
+    <div class="content_text">
+        <div class="date">12.8</div>
+        <div class="content_zj">
+            <div class="jz_big">
+                <span></span>
+            </div>
+        </div>
+    </div>
+    <div class="content_text">
+        <div class="date">12.8</div>
+        <div class="content_zj">
+            <div class="jz_big">
+                <span></span>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="box_bottom"></div>
+<div class="right_box">
+    <p>4会员注册手机号：18612252554</p>
+    <p>体检中心：八一体验中心</p>
+    <p>姓名：Dalei</p>
+    <p>性别：男</p>
+    <p>姓名：Dalei</p>
+    <p>年龄：27</p>
+    <p>联系电话：18612252554</p>
+    <p>预约时间：2015-12-03</p>
+    <p>体检套餐：成人体检套餐</p>
+    <p>体检时间：2015-12-03</p>
+    <p>预约状态：已联系</p>
+    <img src="images/alter_bg.png">
+    <span>修改</span>
+    <div class="sanjiao"></div>
+</div>
+</body>
+</html>

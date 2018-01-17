@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"/>
+    <title>Title</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            -webkit-box-sizing: border-box;
+            -webkit-tap-highlight-color: transparent;
+            tap-highlight-color: transparent;/*去点击高亮*/
+        }
+
+        /*单页面为了避免内容太少没法充满高，这个时候应该设置html的最小高度为100%  */
+        html {
+            min-height: 100%;
+        }
+        body {
+            max-width: 640px;
+            min-width: 320px;
+            overflow: hidden;
+            margin: 0 auto;
+            position: relative;
+            background-image: -webkit-linear-gradient(#ad4d8d, #566293);
+            background-image: linear-gradient(#ad4d8d, #566293);
+            /*body的背景色不会根据设置的宽高改变，，永远是充满全屏的*/
+        }
+        .find {
+            width: 2.4rem;
+            height: 1.2rem;
+            background: #a24584;
+            position: absolute;
+            right: 0;
+            top: 0;
+            border-radius: .6rem 0 0 .6rem;
+            -webkit-border-radius: .6rem 0 0 .6rem;
+            /*box-shadow: 0 0 2.5rem black;*/
+            /*-webkit-box-shadow: 0 0 2.5rem black;*/
+        }
+        .find p{
+            position: absolute;
+            top: 0.14rem;
+            right: 0;
+            width: 2.2rem;
+            height: 0.9rem;
+            background: #f36ca1;
+            border-radius: .6rem 0 0 .6rem;
+            -webkit-border-radius: .6rem 0 0 .6rem;
+            line-height: 0.5rem;
+            text-align: center;
+        }
+        .find p a{
+            color: #fff;
+            font-size: 0.42rem;
+            font-weight: 900;
+        }
+        .box{
+            height: 3.43rem;
+        }
+        .content {
+            height: 3rem;
+            background: url("images/line_middle.png") repeat-y 2.9rem 0;
+            background-size: 0.032rem 0.224rem;
+            -webkit-background-size: 0.032rem 0.224rem;
+            position: relative;
+        }
+        .box_top{
+            height: 1.465rem;
+            background: url("images/line_top.png") repeat-y 2.9rem bottom;
+            background-size: 0.032rem 1.9rem;
+            -webkit-background-size: 0.032rem 1.9rem;
+        }
+        .box_bottom{
+            height: 1.465rem;
+            background: url("images/line_bottom.png") repeat-y 2.9rem top;
+            background-size: 0.032rem 1.8rem;
+            -webkit-background-size: 0.032rem 1.8rem;
+        }
+        .content_box{
+            height: 1.44rem;
+            line-height: 1.44rem;
+            padding: 0.17rem 0;
+        }
+        .content_top_left{
+            font-size:0.42rem;
+            font-weight: 900;
+        }
+        .content_top > div{
+            float: left;
+        }
+        input{
+            background: transparent;
+            border:none;
+            outline-color: yellow;
+        }
+        .content_top_left{
+            width: 2.3rem;
+            color:#fff;
+            text-align: right;
+        }
+        .content_zj{
+            width: 1.275rem;
+            height: 1.44rem;
+            padding:0.36rem 0;
+        }
+        .content_zj>div{
+            width: 0.7185rem;
+            height: 0.7185rem;
+            background:rgba(255,255,255,0.4);
+            margin: 0 auto;
+            border-radius: 100%;
+            padding:0.1796rem 0;
+        }
+        .content_zj>div>span{
+            width: 0.3592rem;
+            height: 0.3592rem;
+            background:rgba(255,255,255,0.8);
+            margin: 0 auto;
+            border-radius: 100%;
+            display: block;
+        }
+        .content_top_right{
+            position: relative;
+        }
+        .content_top_right input{
+            position: absolute;
+            top:0.58rem;
+        }
+        .denglu{
+            width: 3.125rem;
+            height: 1.1875rem;
+            color: #fff;
+            border-radius: 0.3rem;
+            text-align: center;
+            line-height: 1.1875rem;
+            margin: 0 auto;
+            font-size: 0.45rem;
+            font-weight: 900;
+            background: #f36ca1;
+        }
+    </style>
+    <script>
+        function font() {
+            var w = document.documentElement.clientWidth;
+            if (w > 640) {
+                document.documentElement.style.fontSize = 640 / 10 + "px";
+            } else {
+                document.documentElement.style.fontSize = w / 10 + "px";
+            }
+        }
+        font();
+        window.onresize = function () {
+            font();
+        }
+    </script>
+</head>
+<body>
+<div class="find">
+    <p><a>找回密码</a></p>
+</div>
+<div class="box"></div>
+<div class="box_top"></div>
+<div class="content">
+    <div class="content_top content_box">
+        <div class="content_top_left">
+            <p>账号</p>
+        </div>
+        <div class="content_zj">
+            <div class="jz_big">
+                <span></span>
+            </div>
+        </div>
+        <div class="content_top_right">
+            <input type="text" placeholder="请在此输入账号"/>
+        </div>
+    </div>
+    <div class="content_top content_box">
+        <div class="content_top_left">
+            <p>密码</p>
+        </div>
+        <div class="content_zj">
+            <div class="jz_big">
+                <span></span>
+            </div>
+        </div>
+        <div class="content_top_right">
+            <input type="text" placeholder="请在此输入密码"/>
+    </div>
+    </div>
+</div>
+<div class="box_bottom"></div>
+<div class="denglu">登录</div>
+</body>
+</html>

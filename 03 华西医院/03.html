@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"/>
+    <title>Title</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            -webkit-box-sizing: border-box;
+            -webkit-tap-highlight-color: transparent;
+            tap-highlight-color: transparent;/*去点击高亮*/
+        }
+
+        /*单页面为了避免内容太少没法充满高，这个时候应该设置html的最小高度为100%  */
+        html {
+            min-height: 100%;
+        }
+        body {
+            max-width: 640px;
+            min-width: 320px;
+            overflow: hidden;
+            margin: 0 auto;
+            position: relative;
+            background-image: -webkit-linear-gradient(#ad4d8d, #566293);
+            background-image: linear-gradient(#ad4d8d, #566293);
+            /*body的背景色不会根据设置的宽高改变，，永远是充满全屏的*/
+        }
+        .box{
+            height: 1rem;
+        }
+        .box_top{
+            width: 3.75rem;
+            height: 1.25rem;
+            background: #bd7cab;
+            border-radius: 0.625rem;
+            text-align: center;
+            font-size: 0.42rem;
+            line-height: 1.25rem;
+            color: #fff;
+            font-weight: 900;
+            margin-left: 0.9375rem;
+        }
+        .img1{
+            width: 1.25rem;
+            float: left;
+        }
+        .img2{
+            width: 0.45rem;
+        }
+        .content{
+            height: 10.625rem;
+            background: url("images/line_middle.png") repeat-y 1.6rem 0;
+            background-size: 0.032rem 0.224rem;
+            -webkit-background-size: 0.032rem 0.224rem;
+            position: relative;
+            font-size: 0.42rem;
+            color:#fff;
+            font-weight: 900;
+        }
+        .content_text>div{
+            float: left;
+        }
+        .date{
+            width: 1rem;
+            height: 1.265rem;
+            padding-left: 0.25rem;
+            text-align: center;
+            line-height: 1.265rem;
+        }
+        .content_zj{
+            width: 1.2rem;
+            height: 1.265rem;
+            padding:0.45rem 0;
+        }
+        .content_zj>span{
+            display: block;
+            width: 0.3592rem;
+            height: 0.3592rem;
+            background:rgba(255,255,255,0.8);
+            margin: 0 auto;
+            border-radius: 100%;
+        }
+        .textBox{
+            width: 7.8rem;
+            height: 1.265rem;
+            float: right;
+            padding: 0 0.3rem;
+        }
+        .textBox p{
+            float: left;
+            line-height: 1.265rem;
+            text-align: left;
+            font-weight: 900;
+        }
+        .textBox p:nth-child(1){
+            width: 3.5rem;
+            height: 1.265rem;
+        }
+        .textBox p:nth-child(2){
+            width: 1.94rem;
+            height: 1.265rem;
+        }
+        .box2{
+            width: 100%;
+            height: 0.765rem;
+        }
+        .text2{
+            float: right;
+        }
+        #p_btm{
+            width: 7rem;
+        }
+        .box_bottom{
+            height: 1.265rem;
+            background: url("images/line_bottom.png") repeat-y 1.6rem top;
+            background-size: 0.032rem 1.8rem;
+            -webkit-background-size: 0.032rem 1.8rem;
+        }
+    </style>
+    <script>
+        function font() {
+            var w = document.documentElement.clientWidth;
+            if (w > 640) {
+                document.documentElement.style.fontSize = 640 / 10 + "px";
+            } else {
+                document.documentElement.style.fontSize = w / 10 + "px";
+            }
+        }
+        font();
+        window.onresize = function () {
+            font();
+        }
+    </script>
+</head>
+<body>
+<div class="box"></div>
+<div class="box_top">
+    <img class="img1" src="images/detailImage01.png">
+    2015
+    <img class="img2" src="images/select_down.png">
+</div>
+<div class="content">
+    <div class="content_text">
+        <div class="date"></div>
+        <div class="content_zj">
+            <span></span>
+        </div>
+        <div class="textBox"><p>消费内容</p><p>消费人</p><p>消费地点</p></div>
+    </div>
+    <div class="content_text">
+        <div class="date">12.8</div>
+        <div class="content_zj">
+            <span></span>
+        </div>
+        <div class="textBox"><p>体检800元</p><p>刘铭</p><p>华西医院</p></div>
+    </div>
+    <div class="content_text">
+        <div class="date">12.8</div>
+        <div class="content_zj">
+            <span></span>
+        </div>
+        <div class="textBox"><p>专家门诊1000元</p><p>刘铭</p><p>华西医院</p></div>
+    </div>
+    <div class="content_text">
+        <div class="date">12.8</div>
+        <div class="content_zj">
+            <span></span>
+        </div>
+        <div class="textBox"><p>体检800元</p><p>刘贝</p><p>华西医院</p></div>
+    </div>
+    <div class="content_text">
+        <div class="date">12.8</div>
+        <div class="content_zj">
+            <span></span>
+        </div>
+        <div class="textBox"><p>专家门诊1000元</p><p>刘铭</p><p>华西医院</p></div>
+    </div>
+    <div class="content_text">
+        <div class="date">12.8</div>
+        <div class="content_zj">
+            <span></span>
+        </div>
+        <div class="textBox"><p>体检800元</p><p>刘铭</p><p>华西医院</p></div>
+    </div>
+    <div class="content_text">
+        <div class="date">12.8</div>
+        <div class="content_zj">
+            <span></span>
+        </div>
+        <div class="textBox"><p>专家门诊1000元</p><p>刘贝</p><p>华西医院</p></div>
+    </div>
+    <div class="content_text">
+        <div class="box2"></div>
+    </div>
+    <div class="content_text text2">
+        <div class="content_zj">
+            <span></span>
+        </div>
+        <div class="textBox"><p id="p_btm">没有消费记录了······</p></div>
+    </div>
+</div>
+<div class="box_bottom"></div>
+</body>
+</html>
